@@ -1,1 +1,90 @@
+body {
+        margin: 0;
+        font-family: Calibri, sans-serif;
+  
+    }
 
+.ibm-plex-mono-regular {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo { color: #ccc; }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr; /* mobile: single column */
+        min-height: 100vh;
+    }
+
+/* Sidebar / Nav */
+    .sidebar {
+        background: #282828;
+        padding: 1rem;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar li {
+        margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+        color: #FFB000;
+        text-decoration: none;
+        font-weight: regular;
+    }
+
+    .sidebar a:hover {
+        text-decoration: underline;
+    }
+
+    /* Main content */
+    .content {
+        --main-bg-color: #fffffa;
+      background: var(--main-bg-color);
+        padding: 2rem;
+    }
+
+    /* Mobile / below lg: horizontal nav */
+    @media (max-width: 1023px) {
+        .sidebar {
+            padding: 0.5rem 0; /* tighter, remove extra vertical space */
+        }
+      .logo:after {content: " * "}
+
+        .sidebar ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .sidebar li {
+            margin: 0; /* no vertical spacing between items */
+        }
+
+        .layout {
+            min-height: auto; /* don't force full viewport height on mobile */
+        }
+    }
+
+    /* lg and above: 2-column with left nav */
+    @media (min-width: 1024px) {
+        .layout {
+            grid-template-columns: 260px 1fr; /* left fixed, right flexible */
+        }
+
+        .sidebar {
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+    }
